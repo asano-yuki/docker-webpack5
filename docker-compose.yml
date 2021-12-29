@@ -1,0 +1,14 @@
+version: '3'
+services:
+  front:
+    image: node:14.16.0
+    container_name: front
+    working_dir: /usr/src/app
+    tty: true
+    environment:
+      - CHOKIDAR_USEPOLLING=true #Docker上でホットリロードを有効化
+    volumes:
+      - ./front:/usr/src/app
+    command: ./front.sh
+    ports:
+      - "3000:3000"
